@@ -1,0 +1,39 @@
+1.Share of Show and Movie in the top 20 of Netflix and Disney+ IMDB ratings?
+
+在Netflix和Disney+中IMDB評分前20名中電影和影集的占比?
+
+2.Netflix and Disney+ movies, which year has the largest selection?
+
+Netflix和Disney+中的電影哪一個年份最多
+
+3.Comparison of the Top 20 production countries ranked by IMDB in Netflix and Disney+?
+
+Netflix和Disney+中的電影哪一個年份最多
+
+4.Which country has the highest frequency Ristricted on Netflix and Disney+?
+
+在Netflix和Disney+中哪一個國家出的限制級頻率最高
+
+5.Is there a big drop in the rating of the same film in Netflix and Disney+ on IMDB and TMDB?
+
+在Netflix和Disney+中imdb和tmdb同一部電影的評分是否有很大的落差
+
+6.Is the credibility of the imdb score on Netflix and Disney+ the same?
+
+在Netflix和Disney+中imdb score的可信度是否相同?
+
+7.Which movie type is the most at the top 20 movie on Disney+ and Netflix according to IMDB score?
+
+在Netflix和Disney+中imdb評分前20名的電影哪一個類型最多
+
+8.Is the relationship between tmdb score and imdb score the same in Disney+ and Netflix?
+
+tmdb score與imdb score的relation分別在Disney+中和Netflix中是否相同
+
+9.The most popular actors on Netflix and Disney+?
+
+在Netflix和Disney+中最受歡迎的演員
+
+10.Which genre of show is the most at top 20 ranked by IMDB score on Netflix and Disney+?
+
+在Netflix和Disney+中imdb評分前20名的show哪一個類型最多?
