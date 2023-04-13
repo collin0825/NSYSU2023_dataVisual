@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+    // set the dimensions and margins of the graph
+    const margin = {top: 20, right: 30, bottom: 40, left: 90},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+    
+    // append the svg object to the body of the page
+    const svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    
+    // Parse the Data
+    d3.csv("data3.csv").then( function(data) {
+    
+      // Add X axis
+      const x = d3.scaleLinear()
+        .domain([0, 35])
+        .range([ 0, width]);
+      svg.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+          .attr("transform", "translate(-10,0)rotate(-45)")
+          .style("text-anchor", "end");
+      svg.append("text")
+        .style("font-size", "10px")
+        .style("font-family", "sans-serif")
+        .attr("class", "x label")
+        .attr("x", width/2)
+        .attr("y", height+35)
+        .attr("fill", "black")
+        .style("text-anchor", "middle")
+        .text("Temperature");
+    
+      // Y axis
+      const y = d3.scaleBand()
+        .range([ 0, height ])
+        .domain(data.map(d => d.time))
+        .padding(.1);
+      svg.append("g")
+        .call(d3.axisLeft(y))
+    
+      //Bars
+      const rect = svg.selectAll("myRect")
+        .data(data)
+        .join("rect")
+        .attr("x", x(0) )
+        .attr("y", d => y(d.time))
+        .attr("width", d => x(d.temperature))
+        .attr("height", y.bandwidth())
+        .attr("fill", "steelblue")
+
+    // Add brushing
+    var brush = d3.brush()
+        .extent( [ [0,0], [width,height] ] )
+        .on("start", brushed)
+        .on("brush end", brushed);
+    svg.call(brush)
+
+    function brushed({selection}) {
+        let value = [];
+        if (selection) {
+            const [[x0, y0], [x1, y1]] = selection;
+            rect.style("fill", "steelblue");
+            value = rect.filter(d => y0 <= y(d.time) && y(d.time) < y1)
+                .style("fill", "orange")
+        } else {
+            rect.style("fill", "steelblue");
+        }
+    }
+    
+    })
+    
+    </script>
